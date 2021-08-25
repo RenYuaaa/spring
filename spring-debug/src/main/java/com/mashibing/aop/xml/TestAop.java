@@ -1,8 +1,10 @@
 package com.mashibing.aop.xml;
 
 import com.mashibing.aop.xml.service.MyCalculator;
+import com.mashibing.aop.xml.study.MyClassPathXmlApplicationContext;
 import org.springframework.cglib.core.DebuggingClassWriter;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.lang.reflect.Field;
@@ -19,6 +21,8 @@ public class TestAop {
 //        bean.sub(1,1);
 
         ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+        // 注解启动，看AnnotationConfigApplicationContext
+//        MyClassPathXmlApplicationContext myClassPathXmlApplicationContext = new MyClassPathXmlApplicationContext("applicationContext.xml");
     }
 
     public static void saveGeneratedCGlibProxyFiles(String dir) throws Exception {

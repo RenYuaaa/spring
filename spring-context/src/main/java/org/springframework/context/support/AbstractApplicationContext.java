@@ -553,6 +553,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 
 	@Override
 	public void refresh() throws BeansException, IllegalStateException {
+		// 同步监视器，用来表示刷新和isTry的操作
 		synchronized (this.startupShutdownMonitor) {
 			// Prepare this context for refreshing.
 			/**
@@ -691,7 +692,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 	/**
 	 * <p>Replace any stub property sources with actual instances.
 	 * @see org.springframework.core.env.PropertySource.StubPropertySource
-	 * see org.springframework.web.context.support.WebApplicationContextUtils#initServletPropertySources
+	 * @see org.springframework.web.context.support.WebApplicationContextUtils#initServletPropertySources
 	 */
 	protected void initPropertySources() {
 		// For subclasses: do nothing by default.
